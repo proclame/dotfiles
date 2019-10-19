@@ -1,0 +1,13 @@
+{
+	"autoimport": false,
+	"passes":
+	[
+		"ShortArray",
+		"MergeElseIf",
+		"RemoveIncludeParentheses",
+		"ReturnNull",
+		"SpaceBetweenMethods"
+	],
+	"psr2": true,
+	"version": 1
+}

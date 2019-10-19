@@ -1,0 +1,36 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"AdvancedNewFile",
+		"BracketHighlighter",
+		"Browser Refresh",
+		"Color Highlight",
+		"Compare Side-By-Side",
+		"Find PHP Vulnerabilities",
+		"Git",
+		"GitGutter",
+		"gitp",
+		"Hex to HSL Color Converter",
+		"HTML-CSS-JS Prettify",
+		"Laravel 5 Artisan",
+		"Laravel Blade Highlighter",
+		"Laravel Blade Spacer",
+		"MarkdownEditing",
+		"Material Theme",
+		"Package Control",
+		"PHP Companion",
+		"PHP CS Fixer",
+		"PHPUnit",
+		"Pretty JSON",
+		"RawLineEdit",
+		"SideBarEnhancements",
+		"SnippetMaker",
+		"SublimeLinter",
+		"SublimeLinter-phpcs"
+	]
+}

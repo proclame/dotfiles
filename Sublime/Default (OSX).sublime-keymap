@@ -1,0 +1,13 @@
+[
+  { "keys": ["alt+e"], "command": "expand_fqcn" },
+  { "keys": ["alt+i"], "command": "find_use" },
+  { "keys": ["alt+c"], "command": "insert_php_constructor_property" },
+  {
+      "keys": ["super+shift+r"], "command": "browser_refresh", "args": {
+      "auto_save": true,
+      "delay": 0.0,
+      "activate": true,
+      "browsers" : ["chrome"]
+    }
+  }
+]

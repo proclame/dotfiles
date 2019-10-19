@@ -1,0 +1,67 @@
+<?php
+
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@PSR2' => true,  // USE @PSR2 Rules
+        'array_syntax' => ['syntax' => 'short'], // array($a, $b) => [$a, $b]
+        'no_unused_imports' => true, // remove imported classes that are not used
+        'array_indentation' => true, // indent arrays automatically
+        'blank_line_after_opening_tag' => true, //  add blank line after <?php
+        'blank_line_after_namespace' => true, // add blank line after namespace
+        'cast_spaces' => ['space' => 'single'], // a single space should be between cast and spaces: (string) $a;
+        'combine_consecutive_issets' => true, // $a = isset($a) && isset($b); => $a = isset($a, $b);
+        'combine_consecutive_unsets' => true, // unset($a); unset($b); => unset($a, $b);
+        'explicit_string_variable' => true, // " this is $a" => "this is ${a}"
+        'simple_to_complex_string_variable' => true, // " this is ${a}" => "this is {$a}"
+        'include' => true, // include('sdflj.php'); => include 'sdflj.php';
+        'lowercase_cast' => true, // (STRING) $a; => (string) $a;
+        'magic_constant_casing' => true, // __dir__ => __DIR__
+        'magic_method_casing' => true, // __Construct() => __construct()
+
+        'method_chaining_indentation' => true,
+        'class_attributes_separation' => true, // empty lines between class properties and methods
+        'multiline_whitespace_before_semicolons' => true, // remove newlines before ;
+        'no_singleline_whitespace_before_semicolons' => true, // remove whitespace before ;
+        'no_empty_statement' => true, // remove empty statements (line with only semicolon ;)
+        'semicolon_after_instruction' => true, // <?php echo $a  => <?php echo $a;
+        'full_opening_tag' => true, // use <?php or <?= and nothing else
+        'ordered_imports' => ['sort_algorithm' => 'alpha'], // sort imports alphabetically
+
+        'ordered_class_elements' => ['use_trait', 'constant_public', 'constant_protected', 'constant_private', 'property_public', 'property_protected', 'property_private', 'construct', 'destruct', 'magic', 'phpunit', 'method_public', 'method_protected', 'method_private'], // sort properties & methods uniformly
+
+        'single_quote' => ['strings_containing_single_quote_chars' => true], // convert double quotes to single quotes where possible
+        'blank_line_before_statement' => ['statements' => ['return', 'throw', 'try', 'foreach', 'if']], // add blank line before return, foreach, if, throw and try statements
+        'visibility_required' => ['elements' => ['property','method']],
+        'unary_operator_spaces' => true, // $sample ++; => $sample++;
+        'trailing_comma_in_multiline_array' => true,
+        'ternary_to_null_coalescing' => true, // isset($a) ? $a : $b; => $a ?? $b;
+        'standardize_not_equals' => true,
+        'single_line_comment_style' => true,
+        'single_line_after_imports' => true,
+        'simplified_null_return' => true,
+        'short_scalar_cast' => true,
+        'return_type_declaration' => true,
+        'return_assignment' => true,
+        'object_operator_without_whitespace' => true,
+        'no_useless_else' => true,
+        'no_useless_return' => true,
+        'no_whitespace_before_comma_in_array' => true,
+        'no_unneeded_control_parentheses' => true,
+        'no_leading_namespace_whitespace' => true,
+        'no_leading_import_slash' => true,
+        'no_extra_blank_lines' => true,
+        'no_break_comment' => true,
+        'native_function_casing' => true,
+        'multiline_comment_opening_closing' => true,
+        'modernize_types_casting' => true,
+        'mb_str_functions' => true,
+        'self_accessor' => true,
+        'lowercase_static_reference' => true,
+        'lowercase_keywords' => true,
+        'lowercase_constants' => true,
+        'function_typehint_space' => true,
+        'explicit_indirect_variable' => true,
+        'concat_space' => ['spacing' => 'one'],
+        'align_multiline_comment' => ['comment_type' => 'phpdocs_like'],
+    ]);

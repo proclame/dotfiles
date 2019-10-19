@@ -1,0 +1,78 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+
+
+brew "ack"
+brew "composer"
+brew "coreutils"
+brew "git"
+brew "grep"
+brew "mariadb", restart_service: true
+brew "mas"
+brew "node"
+brew "openssh"
+brew "php", restart_service: true
+brew "php-cs-fixer"
+brew "python"
+brew "redis"
+brew "rename"
+brew "ruby"
+brew "ssh-copy-id"
+brew "unrar"
+brew "vim"
+brew "wget"
+brew "yarn"
+
+cask "flux"
+cask "adobe-creative-cloud"
+cask "airflow"
+cask "alfred"
+cask "android-messages"
+cask "backblaze"
+cask "bunqcommunity-bunq"
+cask "caprine"
+cask "clamxav"
+cask "db-browser-for-sqlite"
+cask "dropbox"
+cask "evernote"
+cask "firefox"
+cask "gimp"
+cask "google-chrome"
+cask "google-drive-file-stream"
+cask "handbrake"
+cask "imageoptim"
+cask "iterm2"
+cask "kindle"
+cask "lastpass"
+cask "libreoffice"
+cask "microsoft-office"
+cask "postbox"
+cask "postman"
+cask "qlcolorcode"
+cask "qlimagesize"
+cask "skype"
+cask "slack"
+cask "slack"
+cask "spotify"
+cask "sublime-merge"
+cask "sublime-text"
+cask "tableplus"
+cask "there"
+cask "transmission"
+cask "virtualbox"
+cask "virtualbox"
+cask "virtualbox-extension-pack"
+cask "vlc"
+cask "whatsapp"
+cask "yakyak"
+
+#mas "Redis Server", id: 972359186
+mas "Airmail", id: 918858936
+mas "Image Bucket Pro", id: 451406712
+mas "iRedis", id: 1169059561
+mas "LanScan", id: 472226235
+mas "Magnet", id: 441258766
+mas "Slack", id: 803453959
+mas "Todoist", id: 585829637

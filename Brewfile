@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 
@@ -68,10 +69,12 @@ cask "vlc"
 cask "whatsapp"
 cask "yakyak"
 
+## Fonts
+cask "font-fira-code"
+
 #mas "Redis Server", id: 972359186
 mas "Airmail", id: 918858936
 mas "Image Bucket Pro", id: 451406712
-mas "iRedis", id: 1169059561
 mas "LanScan", id: 472226235
 mas "Magnet", id: 441258766
 mas "Slack", id: 803453959

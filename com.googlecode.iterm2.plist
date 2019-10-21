@@ -942,12 +942,12 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.6</string>
-		<string>3.3.4</string>
+		<string>3.3.2</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
 		<string>3.3.0</string>
 		<string>3.2.9</string>
-		<string>3.3.2</string>
+		<string>3.3.4</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
@@ -967,7 +967,11 @@
 	<key>NoSyncLastTipTime</key>
 	<real>546265320.645648</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>13</integer>
+	<integer>14</integer>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>587474242.05734003</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>

@@ -14,14 +14,15 @@ defaults write com.apple.universalaccess reduceTransparency -bool true
 # Set highlight color to green
 defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
-# Set sidebar icon size to medium
+# Set sidebar icon size to medium (Finder)
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 
 
 echo ""
 echo "Expanding the save panel by default"
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -boolean true
+defaults write -g NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
@@ -31,10 +32,10 @@ echo "Automatically quit printer app once the print jobs complete"
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 echo ""
-echo "Save to disk, rather than iCloud, by default?"
+echo "Save to disk, rather than iCloud, by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-ho ""
+echo ""
 echo "Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window"
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
@@ -46,23 +47,30 @@ echo ""
 echo "Removing duplicates in the 'Open With' menu"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
+echo ""
+echo "Enable automatic text replacements & spellcheck"
+defaults write -g WebAutomaticTextReplacementEnabled -bool true
+defaults write -g WebAutomaticDashSubstitutionEnabled -bool true
+defaults write -g WebContinuousSpellCheckingEnabled -bool true
 
-# Disable the “Are you sure you want to open this application?” dialog
+echo ""
+echo "Disable the “Are you sure you want to open this application?” dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-
-# Disable Notification Center and remove the menu bar icon
+echo ""
+echo "Disable Notification Center and remove the menu bar icon"
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
-
-# Disable automatic capitalization as it’s annoying when typing code
+echo ""
+echo "Disable automatic capitalization as it’s annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
-# Disable automatic period substitution as it’s annoying when typing code
+echo ""
+echo "Disable automatic period substitution as it’s annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
 
 echo ""
-echo "Disable smart quotes and smart dashes?"
+echo "Disable smart quotes and smart dashes"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
@@ -83,12 +91,8 @@ sudo pmset -a hibernatemode 0
 
 
 echo ""
-echo "Disable system-wide resume?)"
-  defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
-
-echo ""
-echo "Disable the menubar transparency?)"
-  defaults write com.apple.universalaccess reduceTransparency -bool true
+echo "Disable system-wide resume?"
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
 echo ""
 echo "Speeding up wake from sleep to 24 hours from an hour"
@@ -115,11 +119,12 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 echo ""
 echo "Setting a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 echo ""
 echo "Disable auto-correct?"
-  defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 
 echo ""
@@ -133,16 +138,16 @@ defaults write com.apple.BezelServices kDimTime -int 300
 
 
 
-# Disable “natural” (Lion-style) scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+echo "Enable “natural” (Lion-style) scrolling"
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
-# Use scroll gesture with the Ctrl (^) modifier key to zoom
+echo "Use scroll gesture with the Ctrl (^) modifier key to zoom"
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-# Follow the keyboard focus while zoomed in
+echo "Follow the keyboard focus while zoomed in"
 defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
-# Show language menu in the top right corner of the boot screen
+echo "Hide language menu in the top right corner of the boot screen"
 sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool false
 
 
@@ -193,93 +198,106 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 
 
-# Finder: disable window animations and Get Info animations
+echo ""
+echo "Finder: disable window animations and Get Info animations"
 defaults write com.apple.finder DisableAllAnimations -bool true
 
 
-# Set Desktop as the default location for new Finder windows
-# For other paths, use `PfLo` and `file:///full/path/here/`
+echo ""
+echo "Set Desktop as the default location for new Finder windows"
+echo "For other paths, use 'PfLo' and 'file:///full/path/here/'"
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
 
-# Show icons for hard drives, servers, and removable media on the desktop
+echo ""
+echo "Show icons for hard drives, servers, and removable media on the desktop"
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
-
-# Finder: show all filename extensions
+echo ""
+echo "Finder: show all filename extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Finder: show status bar
+echo ""
+echo "Finder: show status bar"
 defaults write com.apple.finder ShowStatusBar -bool true
 
-# Finder: show path bar
+echo ""
+echo "Finder: show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
 
-# Display full POSIX path as Finder window title
+echo ""
+echo "Display full POSIX path as Finder window title"
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
-# Keep folders on top when sorting by name
+echo ""
+echo "Keep folders on top when sorting by name"
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 
-# When performing a search, search the current folder by default
+echo ""
+echo "When performing a search, search the current folder by default"
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# Disable the warning when changing a file extension
+echo ""
+echo "Disable the warning when changing a file extension"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Enable spring loading for directories
+echo ""
+echo "Enable spring loading for directories"
 defaults write NSGlobalDomain com.apple.springing.enabled -bool true
 
-# Remove the spring loading delay for directories
+echo ""
+echo "Remove the spring loading delay for directories"
 defaults write NSGlobalDomain com.apple.springing.delay -float 0
 
-# Avoid creating .DS_Store files on network or USB volumes
+echo ""
+echo "Avoid creating .DS_Store files on network or USB volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-# Disable disk image verification
+echo ""
+echo "Disable disk image verification"
 defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-# Automatically open a new Finder window when a volume is mounted
+echo ""
+echo "Automatically open a new Finder window when a volume is mounted"
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
-
-# Enable snap-to-grid for icons on the desktop and in other icon views
+echo ""
+echo "Enable snap-to-grid for icons on the desktop and in other icon views"
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
 
 echo ""
 echo "Disable the warning when changing a file extension? (y/n)"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-
-
-# Use list view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
+echo ""
+echo "Use list view in all Finder windows by default"
+echo "Four-letter codes for the other view modes: 'icnv', 'clmv', 'glyv'"
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-
-
-# Disable the warning before emptying the Trash
+echo ""
+echo "Disable the warning before emptying the Trash"
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 
-# Show the /Volumes folder
+echo ""
+echo "Show the /Volumes folder"
 sudo chflags nohidden /Volumes
 
-# Expand the following File Info panes:
-# “General”, “Open with”, and “Sharing & Permissions”
+echo ""
+echo "Expand the following File Info panes:"
+echo "“General”, “Open with”, and “Sharing & Permissions”"
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	General -bool true \
 	OpenWith -bool true \
@@ -296,66 +314,66 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 
 
 
-# Enable highlight hover effect for the grid view of a stack (Dock)
+echo "Enable highlight hover effect for the grid view of a stack (Dock)"
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-# Set the icon size of Dock items to 36 pixels
+echo "Set the icon size of Dock items to 36 pixels"
 defaults write com.apple.dock tilesize -int 36
 
-# Change minimize/maximize window effect
+echo "Change minimize/maximize window effect"
 defaults write com.apple.dock mineffect -string "scale"
 
-# Minimize windows into their application’s icon
+echo "Minimize windows into their application’s icon"
 defaults write com.apple.dock minimize-to-application -bool true
 
-# Enable spring loading for all Dock items
+echo "Enable spring loading for all Dock items"
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 
-# Show indicator lights for open applications in the Dock
+echo "Show indicator lights for open applications in the Dock"
 defaults write com.apple.dock show-process-indicators -bool true
 
-# Wipe all (default) app icons from the Dock
+#"Wipe all (default) app icons from the Dock"
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
 echo ""
-echo "Wipe all (default) app icons from the Dock (Y/N)"
+echo "Wipe all (default) app icons from the Dock (Y/N) (Only New Install)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   defaults write com.apple.dock persistent-apps -array
 fi
 
 
-# Don’t animate opening applications from the Dock
+echo "Don’t animate opening applications from the Dock"
 defaults write com.apple.dock launchanim -bool false
 
-# Speed up Mission Control animations
+echo "Speed up Mission Control animations"
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
-# Don’t group windows by application in Mission Control
-# (i.e. use the old Exposé behavior instead)
+echo "Don’t group windows by application in Mission Control"
+echo "(i.e. use the old Exposé behavior instead)"
 defaults write com.apple.dock expose-group-by-app -bool false
 
-# Disable Dashboard
+echo "Disable Dashboard"
 defaults write com.apple.dashboard mcx-disabled -bool true
 
-# Don’t show Dashboard as a Space
+echo "Don’t show Dashboard as a Space"
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
-# Don’t automatically rearrange Spaces based on most recent use
+echo "Don’t automatically rearrange Spaces based on most recent use"
 defaults write com.apple.dock mru-spaces -bool false
 
-# Remove the auto-hiding Dock delay
+echo "Remove the auto-hiding Dock delay"
 defaults write com.apple.dock autohide-delay -float 0
-# Remove the animation when hiding/showing the Dock
+echo "Remove the animation when hiding/showing the Dock"
 defaults write com.apple.dock autohide-time-modifier -float 0
 
-# Automatically hide and show the Dock
+echo "Automatically hide and show the Dock"
 defaults write com.apple.dock autohide -bool true
 
-# Make Dock icons of hidden applications translucent
+echo "Make Dock icons of hidden applications translucent"
 defaults write com.apple.dock showhidden -bool true
 
-# Don’t show recent applications in Dock
+echo "Don’t show recent applications in Dock"
 defaults write com.apple.dock show-recents -bool false
 
 
@@ -364,7 +382,7 @@ echo "Disable the over-the-top focus ring animation"
 defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
 
 echo ""
-echo "Hide the menu bar?"
+echo "Hide the menu bar"
 defaults write "Apple Global Domain" "_HIHideMenuBar" 1
 
 
@@ -434,10 +452,12 @@ echo "Adding a context menu item for showing the Web Inspector in web views"
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 
-# Disable the all too sensitive backswipe on trackpads
+echo ""
+echo "Disable the all too sensitive backswipe on trackpads"
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 
-# Disable the all too sensitive backswipe on Magic Mouse
+echo ""
+echo "Disable the all too sensitive backswipe on Magic Mouse"
 defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
 
 
@@ -453,10 +473,12 @@ defaults write com.apple.terminal StringEncodings -array 4
 defaults write com.apple.Terminal "Default Window Settings" -string "Pro"
 defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
 
-# Disable the annoying line marks
+echo ""
+echo "Disable the annoying line marks"
 defaults write com.apple.Terminal ShowLineMarks -int 0
 
-# Don’t display the annoying prompt when quitting iTerm
+echo ""
+echo "Don’t display the annoying prompt when quitting iTerm"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 

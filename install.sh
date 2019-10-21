@@ -35,6 +35,11 @@ valet park
 
 brew cleanup
 
+touch ~/.hushlogin
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+
 npm install -g tldr
 
 mkdir ~/Documents/tmp

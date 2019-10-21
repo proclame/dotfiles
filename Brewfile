@@ -25,6 +25,7 @@ brew "unrar"
 brew "vim"
 brew "wget"
 brew "yarn"
+brew "zsh"
 
 cask "flux"
 cask "adobe-creative-cloud"

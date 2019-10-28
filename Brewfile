@@ -10,14 +10,12 @@ brew "composer"
 brew "coreutils"
 brew "git"
 brew "grep"
-brew "mariadb", restart_service: true
 brew "mas"
 brew "node"
 brew "openssh"
 brew "php", restart_service: true
 brew "php-cs-fixer"
 brew "python"
-brew "redis"
 brew "rename"
 brew "ruby"
 brew "ssh-copy-id"
@@ -37,6 +35,7 @@ cask "bunqcommunity-bunq"
 cask "caprine"
 cask "clamxav"
 cask "db-browser-for-sqlite"
+cask "dbngin"
 cask "dropbox"
 cask "evernote"
 cask "firefox"
@@ -73,7 +72,6 @@ cask "yakyak"
 ## Fonts
 cask "font-fira-code"
 
-#mas "Redis Server", id: 972359186
 mas "Airmail", id: 918858936
 mas "Image Bucket Pro", id: 451406712
 mas "LanScan", id: 472226235

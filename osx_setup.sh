@@ -80,6 +80,10 @@ echo "Disable Photos.app from starting everytime a device is plugged in"
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 
+echo ""
+echo "Change the sheet animation speed (for save as dialogs etc)"
+defaults write NSGlobalDomain NSWindowResizeTime .001
+
 
 ###############################################################################
 # General Power and Performance modifications

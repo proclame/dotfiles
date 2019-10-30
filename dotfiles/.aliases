@@ -4,3 +4,5 @@ alias gc="git commit -m "
 alias gp="git push github"
 alias gs="git status"
 alias nah="git reset --hard; git clean -df;"
+
+alias a="php artisan"

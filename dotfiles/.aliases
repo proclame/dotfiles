@@ -6,3 +6,5 @@ alias gs="git status"
 alias nah="git reset --hard; git clean -df;"
 
 alias a="php artisan"
+alias c="composer"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ."

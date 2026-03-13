@@ -256,7 +256,7 @@ defaults write NSGlobalDomain com.apple.springing.enabled -bool true
 
 echo ""
 echo "Remove the spring loading delay for directories"
-defaults write NSGlobalDomain com.apple.springing.delay -float 0
+defaults write NSGlobalDomain com.apple.springing.delay -float 0.5
 
 echo ""
 echo "Avoid creating .DS_Store files on network or USB volumes"

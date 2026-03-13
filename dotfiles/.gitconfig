@@ -1,0 +1,27 @@
+[user]
+	name = Nick Mispoulier
+	email = nick@proclame.be
+[alias]
+	lastchange = log -p --follow -n 1
+	undo = reset --soft HEAD~1
+	aliases = config --list | grep alias
+	branches = branch -a --sort=-committerdate
+[pull]
+	rebase = false
+[push]
+	default = current
+[rerere]
+	enabled = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
+[core]
+	ignorecase = false
+	autocrlf = input
+	excludesfile = /Users/nick/.gitignore
+[maintenance]
+	repo = /Users/nick/Code/India/admin

@@ -60,3 +60,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/"
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+ln -sf ~/.dotfiles/dotfiles/gitconfig ~/.gitconfig

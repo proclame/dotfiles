@@ -1,0 +1,40 @@
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Credentials & secrets — never commit these
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Compiled Python files
+*.pyc
+
+# Compiled C++ files
+*.out
+
+# Application specific files
+venv/
+node_modules/
+.sass-cache/
+
+# PHP
+.php-cs-fixer.cache
+.phpunit.result.cache
+
+# Logs
+*.log
+
+# JetBrains IDEs
+.idea/
+.junie/

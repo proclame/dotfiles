@@ -61,4 +61,14 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfile
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
-ln -sf ~/.dotfiles/dotfiles/gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/dotfiles/.gitignore ~/.gitignore
+
+## Karabiner-Elements
+mkdir -p ~/.config/karabiner
+ln -sf ~/.dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
+
+## VS Code
+mkdir -p ~/Library/Application\ Support/Code/User
+ln -sf ~/.dotfiles/vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -sf ~/.dotfiles/vscode-keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json

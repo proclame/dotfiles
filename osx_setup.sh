@@ -1,4 +1,4 @@
-
+#!/usr/bin/env bash
 
 ###############################################################################
 # General UI/UX
@@ -40,10 +40,6 @@ echo "Reveal IP address, hostname, OS version, etc. when clicking the clock in t
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 echo ""
-echo "Check for software updates daily, not just once per week"
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-
-echo ""
 echo "Removing duplicates in the 'Open With' menu"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
@@ -57,9 +53,6 @@ echo ""
 echo "Disable the “Are you sure you want to open this application?” dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-echo ""
-echo "Disable Notification Center and remove the menu bar icon"
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 echo ""
 echo "Disable automatic capitalization as it’s annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
@@ -307,10 +300,6 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	OpenWith -bool true \
 	Privileges -bool true
 
-echo ""
-echo "Allowing text selection in Quick Look/Preview in Finder by default"
-defaults write com.apple.finder QLEnableTextSelection -bool true
-
 
 ###############################################################################
 # Dock & Mission Control
@@ -357,12 +346,6 @@ echo "Don’t group windows by application in Mission Control"
 echo "(i.e. use the old Exposé behavior instead)"
 defaults write com.apple.dock expose-group-by-app -bool false
 
-echo "Disable Dashboard"
-defaults write com.apple.dashboard mcx-disabled -bool true
-
-echo "Don’t show Dashboard as a Space"
-defaults write com.apple.dock dashboard-in-overlay -bool true
-
 echo "Don’t automatically rearrange Spaces based on most recent use"
 defaults write com.apple.dock mru-spaces -bool false
 
@@ -403,10 +386,10 @@ defaults write "Apple Global Domain" "_HIHideMenuBar" 1
 # 11: Launchpad
 # 12: Notification Center
 # 13: Lock Screen
-# Top left screen corner → Mission Control
+# Top left screen corner → Desktop
 defaults write com.apple.dock wvous-tl-corner -int 4
 defaults write com.apple.dock wvous-tl-modifier -int 0
-# Top right screen corner → Desktop
+# Top right screen corner → Start screen saver
 defaults write com.apple.dock wvous-tr-corner -int 5
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
@@ -537,44 +520,18 @@ fi
 
 
 ###############################################################################
-# Sublime Text
-###############################################################################
-echo ""
-echo "Do you use Sublime Text 3 as your editor of choice, and is it installed?"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  # Installing from homebrew cask does the following for you!
-  # echo ""
-  # echo "Linking Sublime Text for command line usage as subl"
-  # 	ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-
-  echo ""
-  echo "Setting Git to use Sublime Text as default editor"
-  git config --global core.editor "subl -n -w"
-fi
-
-###############################################################################
-# Optional Extras
-###############################################################################
-
-# Create a nice last-change git log message, from https://twitter.com/elijahmanor/status/697055097356943360
-git config --global alias.lastchange 'log -p --follow -n 1'
-
-
-
-###############################################################################
 # Kill affected applications
 ###############################################################################
 
 echo ""
-cecho "Done!" $cyan
+echo "Done!"
 echo ""
 echo ""
-cecho "################################################################################" $white
+echo "################################################################################"
 echo ""
 echo ""
-cecho "Note that some of these changes require a logout/restart to take effect." $red
-cecho "Killing some open applications in order to take effect." $red
+echo "Note that some of these changes require a logout/restart to take effect."
+echo "Killing some open applications in order to take effect."
 echo ""
 
 find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
